@@ -1,4 +1,4 @@
-# Quadratic connect 4
+# Feature Extraction and Selection Comparisons
 
 # Introduction
 
