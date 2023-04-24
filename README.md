@@ -1,4 +1,4 @@
-# Feature Extraction and Selection Comparisons
+# Feature selection and extraction comparison
 
 # Introduction
 
@@ -45,4 +45,4 @@ To start the program:
 
 # Example
 
-![Example run](https://github.com/JayaAnim/Minimax/blob/main/connectMExample.png)
+![Example run](https://github.com/JayaAnim/SpamFilter/blob/main/example.png)

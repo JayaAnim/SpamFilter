@@ -7,22 +7,19 @@ from sklearn.feature_selection import RFE
 from sklearn.decomposition import PCA
 
 #This function removes low variance features from the input dataframe.
-def remove_low_variance_features(X, threshold):
-    print('here')
+def remLowVariance(X, threshold):
     selector = VarianceThreshold(threshold=threshold)
-    print('here')
     selector.fit(X)
-    print('here')
     return X[X.columns[selector.get_support(indices=True)]]
 
 #This function selects the top k features based on the chi-squared test between each feature and the target variable.
-def select_k_best_features(X, y, k):
+def kBest(X, y, k):
     selector = SelectKBest(chi2, k=k)
     selector.fit(X, y)
     return X[X.columns[selector.get_support(indices=True)]]
 
 #performs pca on dataset and returns transformed dataframe with n_components
-def perform_pca(X, n_components):
+def pca(X, n_components):
     pca = PCA(n_components=n_components)
     X_transformed = pca.fit_transform(X)
     column_names = [f"PC{i}" for i in range(1, n_components+1)]

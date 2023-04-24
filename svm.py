@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.utils import shuffle
 import numpy as np  # for handling multi-dimensional array operation
 from bow import BoW
-from utils import remove_low_variance_features, select_k_best_features, perform_pca
+from utils import remLowVariance, kBest, pca
 from sklearn.feature_extraction.text import TfidfVectorizer
 from tfidf import TFIDF
 
@@ -77,14 +77,14 @@ class SVM:
         X_train, X_test, y_train, y_test = tts(X, Y, test_size=0.2, random_state=19)
         return X_train, X_test, y_train, y_test
     
-    #Selects features using userspecified method (remove_low_variance_features, select_k_best_features, perform_pca)
+    #Selects features using userspecified method (remLowVariance, kBest, pca)
     def selectFeatures(self, X, Y, featureParams):
         if featureParams.select == 1:
-            return remove_low_variance_features(X, featureParams.threshold)
+            return remLowVariance(X, featureParams.threshold)
         elif featureParams.select == 2:
-            return select_k_best_features(X, Y, featureParams.k)
+            return kBest(X, Y, featureParams.k)
         elif featureParams.select == 3:
-            return perform_pca(X, featureParams.n)
+            return pca(X, featureParams.n)
         elif featureParams.select == 4:
             return X
         else:
